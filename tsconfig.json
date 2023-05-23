@@ -2,6 +2,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "declaration": true,
+    "declarationDir": "types",
+    "outDir": "dist",
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "esModuleInterop": true,
