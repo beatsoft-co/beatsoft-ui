@@ -1,1 +1,1 @@
-import{useTheme as t}from"../../theme/theme.js";const e=e=>{const{variant:a="default"}=e,{variants:{button:n}}=t();return React.createElement("button",{className:n[a]},"OK")};export{e as default};
+import t from"react";import{useTheme as e}from"../../theme/theme.js";const a=a=>{const{variant:r="default"}=a,{variants:{button:o}}=e();return t.createElement("button",{className:o[r]},"OK")};export{a as default};

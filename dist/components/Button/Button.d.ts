@@ -1,3 +1,7 @@
-/// <reference types="react" />
-declare const Button: (props: ButtonProps) => import("react").JSX.Element;
+import React from "react";
+type ButtonProps = {
+    variant: string;
+    children: React.ReactNode;
+};
+declare const Button: (props: ButtonProps) => React.JSX.Element;
 export default Button;

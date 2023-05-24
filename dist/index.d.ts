@@ -1,6 +1,14 @@
-/// <reference types="react" />
-import * as react from 'react';
+import React from 'react';
 
-declare const Button: (props: ButtonProps) => react.JSX.Element;
+type ButtonProps = {
+    variant: string;
+    children: React.ReactNode;
+};
+declare const Button: (props: ButtonProps) => React.JSX.Element;
 
-export { Button };
+declare const ThemeProvider: (props: {
+    children: React.ReactNode;
+}) => React.JSX.Element;
+declare const useTheme: () => any;
+
+export { Button, ThemeProvider, useTheme };
