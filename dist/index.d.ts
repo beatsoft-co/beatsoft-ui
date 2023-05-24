@@ -1,9 +1,9 @@
 import React from 'react';
 
-type ButtonProps = {
+interface ButtonProps {
     variant: string;
     children: React.ReactNode;
-};
+}
 declare const Button: (props: ButtonProps) => React.JSX.Element;
 
 declare const ThemeProvider: (props: {
@@ -11,4 +11,4 @@ declare const ThemeProvider: (props: {
 }) => React.JSX.Element;
 declare const useTheme: () => any;
 
-export { Button, ThemeProvider, useTheme };
+export { Button, ButtonProps, ThemeProvider, useTheme };
