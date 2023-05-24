@@ -1,1 +1,1 @@
-"use strict";var e=require("react"),t=require("../../theme/theme.cjs");function r(e){return e&&"object"==typeof e&&"default"in e?e:{default:e}}var a=r(e);module.exports=e=>{const{variant:r="default"}=e,{variants:{button:u}}=t.useTheme();return a.default.createElement("button",{className:u[r]},"OK")};
+"use strict";var e=require("react/jsx-runtime"),t=require("../../theme/theme.cjs");module.exports=r=>{const{variant:s="default"}=r,{variants:{button:u}}=t.useTheme();return e.jsx("button",{className:u[s],children:"OK"})};
