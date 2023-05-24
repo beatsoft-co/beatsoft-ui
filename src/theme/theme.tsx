@@ -1,5 +1,15 @@
 import React, { createContext, useContext, useState } from "react";
 
+type ThemeType = {
+  button: {
+    variants: {
+      default: {
+        className: string;
+      };
+    };
+  };
+};
+
 const ThemeContext = createContext<any>(undefined);
 
 export const ThemeProvider = (props: { children: React.ReactNode }) => {
