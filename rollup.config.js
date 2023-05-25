@@ -1,56 +1,37 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable no-undef */
-import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
-
 import dts from "rollup-plugin-dts";
-import peerDepsExternal from "rollup-plugin-peer-deps-external";
-import { typescriptPaths } from "rollup-plugin-typescript-paths";
 import { terser } from "rollup-plugin-terser";
-import preserveDirectives from "rollup-plugin-preserve-directives";
-
-const outputOptions = {
-  sourcemap: false,
-  preserveModules: true,
-  preserveModulesRoot: "src",
-};
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
 
 export default [
   {
     input: "src/index.ts",
     output: [
       {
-        dir: "dist",
+        file: "dist/cjs/index.js",
         format: "cjs",
-        entryFileNames: "[name].cjs",
-        exports: "auto",
-        ...outputOptions,
+        sourcemap: true,
       },
       {
-        dir: "dist",
+        file: "dist/esm/index.js",
         format: "esm",
-        ...outputOptions,
+        sourcemap: true,
       },
     ],
-    external: [/node_modules/],
     plugins: [
       peerDepsExternal(),
       resolve(),
       commonjs(),
-      preserveDirectives(),
+      typescript({ tsconfig: "./tsconfig.json" }),
       terser(),
-      typescript({
-        tsconfig: "./tsconfig.json",
-        exclude: ["**/stories/**", "**/tests/**", "./styles.css"],
-      }),
-      typescriptPaths(),
     ],
+    external: ["react", "react-dom", "tailwindcss"],
   },
   {
-    input: "dist/index.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "esm" }],
+    input: "src/index.ts",
+    output: [{ file: "dist/types.d.ts", format: "es" }],
     plugins: [dts()],
-    external: [/\.css$/],
   },
 ];
