@@ -1,1 +1,0 @@
-"use strict";var e=require("react/jsx-runtime"),t=require("../../theme/theme.cjs");module.exports=r=>{const{variant:s="default"}=r,{variants:{button:u}}=t.useTheme();return e.jsx("button",{className:u[s],children:"OK"})};

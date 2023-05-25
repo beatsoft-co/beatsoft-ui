@@ -1,1 +1,0 @@
-import{jsx as t}from"react/jsx-runtime";import{useTheme as e}from"../../theme/theme.js";const r=r=>{const{variant:a="default"}=r,{variants:{button:n}}=e();return t("button",{className:n[a],children:"OK"})};export{r as default};
